@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/widgets.dart';
 import 'package:mix_subtitle/features/home/presentation/view/widgets/unicorn_outline_button.dart';
 
 class ProButton extends StatelessWidget {

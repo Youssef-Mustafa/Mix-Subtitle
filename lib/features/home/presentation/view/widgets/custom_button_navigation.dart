@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:mix_subtitle/constants.dart';
+import 'package:mix_subtitle/features/home/presentation/view/widgets/button_nav_icon.dart';
+import 'package:mix_subtitle/features/home/presentation/view/widgets/create_button.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
   const CustomBottomNavigation({
@@ -15,43 +17,26 @@ class CustomBottomNavigation extends StatelessWidget {
       child: BottomAppBar(
         shape: const CircularNotchedRectangle(),
         padding: const EdgeInsets.symmetric(horizontal: 8),
-        height: 80,
         color: kPrimaryColor,
         notchMargin: 5,
         child: Row(
           mainAxisSize: MainAxisSize.max,
           mainAxisAlignment: MainAxisAlignment.spaceAround,
           children: [
-            IconButton(
-              onPressed: () {},
-              icon: const Icon(
-                Icons.video_collection_outlined,
-                size: 30,
-              ),
+            ButtonNavIcon(
+              title: 'Projects',
+              icon: Icons.video_collection_outlined,
+              onPressed: () {
+                //TODO: Pop to projects
+              },
             ),
-            SizedBox(
-              height: 50,
-              width: 130,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8)),
-                  backgroundColor: Color(0xff7e12fe),
-                ),
-                onPressed: () {},
-                child: const Text(
-                  'Create',
-                  style: TextStyle(color: Colors.white),
-                ),
-              ),
-            ),
-            IconButton(
-              //TODO: add text under icon
-              onPressed: () {},
-              icon: const Icon(
-                Icons.person_outlined,
-                size: 30,
-              ),
+            const CreateButton(),
+            ButtonNavIcon(
+              icon: Icons.person_outline,
+              title: 'Profile',
+              onPressed: () {
+                //TODO: Navigate to Profile
+              },
             ),
           ],
         ),
