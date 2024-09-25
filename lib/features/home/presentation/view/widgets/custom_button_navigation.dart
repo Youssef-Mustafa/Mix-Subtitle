@@ -4,8 +4,13 @@ import 'package:mix_subtitle/features/home/presentation/view/widgets/button_nav_
 import 'package:mix_subtitle/features/home/presentation/view/widgets/create_button.dart';
 
 class CustomBottomNavigation extends StatelessWidget {
+  final Function(int) onTabSelected; // Callback to pass the selected index
+  final int currentIndex; // Track the current index
+
   const CustomBottomNavigation({
     super.key,
+    required this.onTabSelected,
+    required this.currentIndex, // Receive the current index
   });
 
   @override
@@ -27,16 +32,18 @@ class CustomBottomNavigation extends StatelessWidget {
               title: 'Projects',
               icon: Icons.video_collection_outlined,
               onPressed: () {
-                //TODO: Pop to projects
+                onTabSelected(0); // Projects tab selected
               },
+              isSelected: currentIndex == 0, // Check if selected
             ),
             const CreateButton(),
             ButtonNavIcon(
               icon: Icons.person_outline,
               title: 'Profile',
               onPressed: () {
-                //TODO: Navigate to Profile
+                onTabSelected(1); // Profile tab selected
               },
+              isSelected: currentIndex == 1, // Check if selected
             ),
           ],
         ),
